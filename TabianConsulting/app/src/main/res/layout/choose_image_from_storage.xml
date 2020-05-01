@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Choose File"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:id="@+id/button_choose_image_file"
+    />
+
+    <EditText
+        android:id="@+id/image_name"
+        android:layout_width="wrap_content"
+        android:layout_height="50sp"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/button_choose_image_file"
+        android:hint="Enter file name" />
+
+    <Button
+        android:id="@+id/upload_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="131dp"
+        android:layout_marginBottom="15dp"
+        android:text="UPLOAD" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/upload_image_button"
+        android:layout_alignParentBottom="true"
+        android:text="Show Images"
+        android:layout_toEndOf="@id/upload_image_button"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:gravity="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_choose_image_file"
+        android:layout_above="@id/upload_image_button"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/display_image_for_view"/>
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/upload_image_button"
+        android:layout_below="@id/display_image_for_view"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/progress_bar"
+        />
+
+
+
+</RelativeLayout>

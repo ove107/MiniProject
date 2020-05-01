@@ -1,6 +1,7 @@
 package com.example.tabianconsulting;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +22,15 @@ FloatingActionButton fab;
 ImageView img;
 private static final int PICK_IMAGE=1;
 Uri imageUri;
+AddImageToCategory listener;
+
+
+
+
+
+interface AddImageToCategory{
+    void onClickAddImage();
+}
 
     @Nullable
     @Override
@@ -31,7 +41,7 @@ Uri imageUri;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseImage();
+                listener.onClickAddImage();
             }
         });
         return view;
@@ -44,6 +54,12 @@ Uri imageUri;
             imageUri=data.getData();
             Glide.with(this).load(imageUri).into(img);
         }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        listener =(AddImageToCategory)context;
     }
 
     private void chooseImage() {

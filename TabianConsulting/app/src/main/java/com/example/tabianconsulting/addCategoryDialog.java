@@ -20,7 +20,7 @@ public class addCategoryDialog extends AppCompatDialogFragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        listener = (addCategoryInterface)context;
+        listener = (addCategoryInterface)getTargetFragment();
     }
 
     @NonNull
@@ -34,7 +34,7 @@ public class addCategoryDialog extends AppCompatDialogFragment {
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        getDialog().dismiss();
                     }
                 }).setPositiveButton("add", new DialogInterface.OnClickListener() {
             @Override

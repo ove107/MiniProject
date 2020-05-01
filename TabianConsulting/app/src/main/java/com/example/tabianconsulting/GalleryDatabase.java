@@ -10,7 +10,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Category.class},version = 1,exportSchema = false)
+@Database(entities = {Category.class},version = 3,exportSchema = false)
 public abstract class GalleryDatabase extends RoomDatabase {
     public abstract GalleryDao GalleryDao();
 
@@ -23,8 +23,6 @@ public abstract class GalleryDatabase extends RoomDatabase {
                     databaseInstance = Room.databaseBuilder(context.getApplicationContext(),
                             GalleryDatabase.class,
                             "Gallery_Database")
-                            .fallbackToDestructiveMigration()
-                            .addCallback(sEmpCallback)
                             .build();
                 }
             }
@@ -36,7 +34,7 @@ public abstract class GalleryDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-      // new PopulateDbAsync(databaseInstance).execute();
+      new PopulateDbAsync(databaseInstance).execute();
         }
     };
 
