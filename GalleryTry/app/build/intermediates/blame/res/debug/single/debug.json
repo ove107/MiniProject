@@ -1,0 +1,198 @@
+[
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_add.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/add.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_category_default.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/category_default.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_delete.jpeg.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/delete.jpeg"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_signup.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/signup.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_profile.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/profile.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_gallery.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/gallery.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_gallery_name.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-anydpi/ic_gallery_name.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_timeline.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/timeline.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_user1.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/user1.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_category_item.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/category_item.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_timeline_layout.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/timeline_layout.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_gallery_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-mdpi/ic_gallery_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_gallery_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-hdpi/ic_gallery_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_camera_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-xxhdpi/ic_camera_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/font_roboto.ttf.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/font/roboto.ttf"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_camera_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-xhdpi/ic_camera_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_gallery_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-xhdpi/ic_gallery_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_timeline.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/timeline.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_login.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/login.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/font_roboto_regular.ttf.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/font/roboto_regular.ttf"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_category_image.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/category_image.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_camera_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-hdpi/ic_camera_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/menu_bottom_navigation.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/menu/bottom_navigation.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_gallery_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-xxhdpi/ic_gallery_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_activity_gallery.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/activity_gallery.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_category.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/category.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-anydpi_ic_camera_name.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-anydpi/ic_camera_name.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_add_category.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/add_category.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_image.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/image.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_full_screen.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/full_screen.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_signup.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/signup.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_camera_name.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-mdpi/ic_camera_name.png"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/layout_user_profile.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/layout/user_profile.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/drawable_borders.xml.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/drawable/borders.xml"
+    },
+    {
+        "merged": "/home/ankit/AndroidStudioProjects/GalleryTry/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/ankit/AndroidStudioProjects/GalleryTry/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    }
+]
