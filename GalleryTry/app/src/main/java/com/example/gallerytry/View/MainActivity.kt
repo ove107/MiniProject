@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun validate():Boolean{
         var valid = true
-        email = login_email.text.toString()
-        password = login_password.text.toString()
+        email = login_email.text.toString().trim()
+        password = login_password.text.toString().trim()
 
         if (TextUtils.isEmpty(email)){
             login_email.error = "Required field"

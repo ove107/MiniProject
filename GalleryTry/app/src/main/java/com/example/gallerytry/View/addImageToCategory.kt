@@ -94,7 +94,7 @@ class addImageToCategory  : Fragment() {
             imagesAdapter =
                 AdapterImage(context)
             imagesAdapter.listChange(it)
-            //imagesAdapter.notifyDataSetChanged()
+            imagesAdapter.notifyDataSetChanged()
             recycler.adapter = imagesAdapter
         })
     }
@@ -132,6 +132,6 @@ class addImageToCategory  : Fragment() {
 
     private fun storeImage() {
         viewmodel.storeImages(categoryName,uri)
-        Toast.makeText(context,"Successfully uploaded.",Toast.LENGTH_SHORT).show()
+      //  Toast.makeText(context,"Successfully uploaded.",Toast.LENGTH_SHORT).show()
     }
 }

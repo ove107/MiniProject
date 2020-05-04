@@ -3,22 +3,23 @@
     <item
         android:id="@+id/gallery_item"
         android:title="Gallery"
-        android:icon="@drawable/gallery"/>
+        android:icon="@drawable/gallery2" />
+
 
     <item
         android:id="@+id/timeline_item"
         android:title="Timeline"
-        android:icon="@drawable/timeline"/>
+        android:icon="@drawable/timeline1"/>
 
     <item
         android:id="@+id/add_item"
         android:title="Add category"
-        android:icon="@drawable/add"
+        android:icon="@drawable/add1"
         />
     <item
         android:id="@+id/profile_item"
         android:title="Profile"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/avatar"
         />
 
 

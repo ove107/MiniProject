@@ -28,17 +28,14 @@ class FireBaseModel {
     fun signup(Name: String, Email: String, Password: String, uri: Uri?): Boolean {
         auth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener() { task ->
             if (task.isSuccessful) {
-
-
-                //  Log.d(TAG, "onComplete: AuthState: " + FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-                //send email verificaiton
-                sendVerificationEmail()
-
-                FirebaseAuth.getInstance().signOut()
-
                 currentUID = auth.currentUser!!.uid
+                //send email verificaiton
+//                sendVerificationEmail()
                 uploadImage(Name, Email, uri)
+//                FirebaseAuth.getInstance().signOut()
+
+
+
                 //startActivity(Intent(context, GalleryActivity::class.java))
             } else {
                 Log.e("Error", "" + task.exception)
@@ -61,16 +58,16 @@ class FireBaseModel {
     private fun uploadImage(Name: String, Email: String, uri: Uri?) {
         var uri1 = uri
         if (uri == null) {
-            Toast.makeText(MainActivity(), "Please select image", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(MainActivity(), "Please select image", Toast.LENGTH_SHORT).show()
             uri1 = Uri.parse("android.resource://com.example.gallerytry/" + R.drawable.user1)
             Log.e("URI IS", "$uri1")
         }
         val filename = UUID.randomUUID().toString()
         storageRef = FirebaseStorage.getInstance().getReference("/images/$filename")
         storageRef.putFile(uri1!!).addOnSuccessListener {
-           Toast.makeText(MainActivity(), "Image uploaded successfully!", Toast.LENGTH_SHORT)
-                .show()
-            storageRef.downloadUrl.addOnSuccessListener {
+//           Toast.makeText(MainActivity(), "Image uploaded successfully!", Toast.LENGTH_SHORT)
+//                .show()
+        storageRef.downloadUrl.addOnSuccessListener {
                 Log.d("Location", "$it")
                 savetodatabase(Name, Email, it.toString())
             }
@@ -81,9 +78,11 @@ class FireBaseModel {
 
     private fun savetodatabase(sName: String, sEmail: String, imageID: String) {
         //val uID = auth.uid.toString()
+        val userId = auth.uid.toString()
         Log.e("IMAGE URI", imageID)
         firestore = FirebaseFirestore.getInstance()
-        val collection = firestore.collection("UsersDetails").document(currentUID)
+
+        val collection = firestore.collection("UsersDetails").document(userId)
         val userModel =
             userDataModel(sName, sEmail, imageID)
         collection.set(userModel).addOnSuccessListener {
@@ -92,7 +91,7 @@ class FireBaseModel {
         }.addOnFailureListener() {
             Log.e("Error", "$it")
         }
-
+        FirebaseAuth.getInstance().signOut()
     }
 
     fun loadData() : CollectionReference {

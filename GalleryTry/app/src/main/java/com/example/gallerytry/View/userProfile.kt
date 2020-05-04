@@ -88,7 +88,7 @@ class userProfile : Fragment() {
         viewmodel.getUserDetails()
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    Log.e("DATA", "DocumentSnapshot data: ${document.data}")
+                    Log.d("DATA", "DocumentSnapshot data: ${document.data}")
                     user_profile_name.text = document.getString("username")
                     user_profile_email.text = document.getString("emailID")
                     if(document.getString("imageID")!=null)
