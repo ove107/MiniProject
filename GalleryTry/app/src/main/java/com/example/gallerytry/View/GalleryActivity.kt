@@ -32,6 +32,7 @@ class GalleryActivity : AppCompatActivity() {
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,profileFragment)
+                        .addToBackStack(null)
                         .commit()
                 }
                 R.id.gallery_item -> {
@@ -40,6 +41,7 @@ class GalleryActivity : AppCompatActivity() {
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,categoryFragment)
+                        .addToBackStack(null)
                         .commit()
                }
                 R.id.add_item -> {
@@ -48,6 +50,7 @@ class GalleryActivity : AppCompatActivity() {
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,addFragment)
+                        .addToBackStack(null)
                         .commit()
                 }
                 R.id.timeline_item -> {
@@ -56,6 +59,7 @@ class GalleryActivity : AppCompatActivity() {
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,timelineFragment)
+                        .addToBackStack(null)
                         .commit()
                 }
            }
@@ -63,7 +67,27 @@ class GalleryActivity : AppCompatActivity() {
         }
     }
 
-    fun logout(view: View) {
+    override fun onStart() {
+        super.onStart()
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser == null){
+           logout()
+        }
+    }
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount>0)
+        {
+            for(i in 1..supportFragmentManager.backStackEntryCount)
+            supportFragmentManager.popBackStackImmediate()
+        }
+        else {
+            val dialog = DialogLogout()
+            supportFragmentManager.beginTransaction().add(dialog, "dialog fragment").commit()
+        }
+    }
+
+    fun logout() {
         auth = FirebaseAuth.getInstance()
         auth.signOut()
         startActivity(Intent(this, MainActivity::class.java))

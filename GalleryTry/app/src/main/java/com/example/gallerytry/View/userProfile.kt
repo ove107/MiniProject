@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.gallerytry.R
 import com.example.gallerytry.ViewModel.GalleryViewModel
@@ -27,6 +28,8 @@ class userProfile : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var uri: Uri
+    var userName: String? = " "
+    var userEmail:String? = " "
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,6 +40,7 @@ class userProfile : Fragment() {
         userDetails()
         view.user_profile_logout.setOnClickListener {
             viewmodel.logout()
+            clearBackStack()
             startActivity(
                 Intent(context,
                     MainActivity::class.java)
@@ -52,6 +56,11 @@ class userProfile : Fragment() {
         }
 
         return view
+    }
+
+    private fun clearBackStack() {
+        for(i in 1..fragmentManager?.backStackEntryCount!!)
+            fragmentManager!!.popBackStack()
     }
 
     private lateinit var imageProgress: ProgressDialog
@@ -81,27 +90,41 @@ class userProfile : Fragment() {
 
     private lateinit var progress: ProgressDialog
     private fun userDetails() {
+
         progress = ProgressDialog(context)
         progress.setTitle("Fetching user data")
         progress.setMessage("Please wait")
         progress.show()
-        viewmodel.getUserDetails()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d("DATA", "DocumentSnapshot data: ${document.data}")
-                    user_profile_name.text = document.getString("username")
-                    user_profile_email.text = document.getString("emailID")
-                    if(document.getString("imageID")!=null)
-                    Picasso.get().load(document.getString("imageID")).into(user_profile_image)
-                    progress.dismiss()
-                } else {
-                    Log.e("NO DOCUMENT", "No such document")
+        if (userName==" ") {
+            viewmodel.getUserDetails()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        Log.d("DATA", "DocumentSnapshot data: ${document.data}")
+                        userName=document.getString("username")
+                        userEmail=document.getString("emailID")
+                        user_profile_name.text = userName
+                        user_profile_email.text =userEmail
+                        if (document.getString("imageID") != null)
+                            Picasso.get().load(document.getString("imageID"))
+                                .into(user_profile_image)
+                        progress.dismiss()
+                    } else {
+                        Log.e("NO DOCUMENT", "No such document")
+                    }
                 }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("Failed", "get failed with ", exception)
-                Toast.makeText(context,"Unable to fetch user details, please try again later.",
-                    Toast.LENGTH_SHORT).show()
-            }
+                .addOnFailureListener { exception ->
+                    Log.e("Failed", "get failed with ", exception)
+                    Toast.makeText(
+                        context, "Unable to fetch user details, please try again later.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+        else{
+            user_profile_name?.text=userName
+            user_profile_email?.text=userEmail
+        }
     }
+
 }
+

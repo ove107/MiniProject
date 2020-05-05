@@ -59,6 +59,7 @@ class Signup : Fragment(){
 
     }
 
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 0 && data != null){
@@ -86,10 +87,10 @@ class Signup : Fragment(){
             signup_password.error = "Required Field"
             v = false
         }
-//        if (!sEmail.contains("@") || !sEmail.contains(".com")){
-//            signup_email.error = "Enter a valid email address"
-//            v = false
-//        }
+        if (!sEmail.contains("@") || !sEmail.contains(".com")){
+            signup_email.error = "Enter a valid email address"
+            v = false
+        }
         if (sPass.length < 6) {
             signup_password.error = "Password is too short"
             v = false

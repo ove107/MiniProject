@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
     }
 
+
     public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
@@ -79,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         val manager = supportFragmentManager
         val transact = manager.beginTransaction()
         val sFragment = Signup()
-        transact.replace(R.id.main_activity_container,sFragment)
+        transact.replace(R.id.main_activity_container,sFragment).addToBackStack("signup")
         transact.commit()
     }
 
