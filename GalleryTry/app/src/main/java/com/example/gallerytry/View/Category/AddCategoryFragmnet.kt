@@ -1,6 +1,5 @@
-package com.example.gallerytry.View
+package com.example.gallerytry.View.Category
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,16 +11,16 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gallerytry.R
-import com.example.gallerytry.ViewModel.GalleryViewModel
+import com.example.gallerytry.View.User.ProgressDisplay
+import com.example.gallerytry.ViewModel.CategoryViewModel
 import kotlinx.android.synthetic.main.activity_gallery.*
 import kotlinx.android.synthetic.main.add_category.*
 import kotlinx.android.synthetic.main.add_category.view.*
 
 
-class addCategory : Fragment(){
-    private lateinit var viewmodel: GalleryViewModel
-    private var uri: Uri?= null
-    private lateinit var progressDialog : ProgressDialog
+class AddCategoryFragmnet :Fragment(){
+    private var viewmodel = CategoryViewModel()
+    private var uri:Uri ?= null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,26 +37,25 @@ class addCategory : Fragment(){
 
         view.addCategoryBtn.setOnClickListener {
             if (uri == null){
-                Toast.makeText(context,"Please select an image for the category", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Please select an image for the category",Toast.LENGTH_SHORT).show()
             }
             else if (TextUtils.isEmpty(categoryEdit.text)){
-                Toast.makeText(context,"Please enter name of the category", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Please enter name of the category",Toast.LENGTH_SHORT).show()
             }
             else {
-                progressDialog = ProgressDialog(context)
-                progressDialog.setTitle("Adding category")
-                progressDialog.setMessage("Please wait")
-                progressDialog.show()
+                val progressDisplay = ProgressDisplay(activity!!)
+                progressDisplay.startLoadingDialog("Adding category, please wait.")
                 val categoryName = categoryEdit.text.toString()
-                viewmodel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+                viewmodel = ViewModelProvider(this).get(CategoryViewModel::class.java)
                 if (viewmodel.addCategory(uri!!,categoryName)){
-                    progressDialog.dismiss()
+                    progressDisplay.dismissDialog()
                     activity!!.navigationView.menu.getItem(0).setChecked(true)
-                    val category = Category()
+                    val category =
+                        CategoryFragment()
                     val transaction = activity!!.supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.container,category)
                     transaction.commit()
-                    Toast.makeText(context,"Category added successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Category added successfully",Toast.LENGTH_SHORT).show()
                 }
 
 

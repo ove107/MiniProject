@@ -1,4 +1,4 @@
-package com.example.gallerytry.View
+package com.example.gallerytry.View.Signup
 
 import android.content.Intent
 import android.net.Uri
@@ -12,13 +12,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gallerytry.R
-import com.example.gallerytry.ViewModel.GalleryViewModel
+import com.example.gallerytry.View.MainActivity
+import com.example.gallerytry.ViewModel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.signup.*
 import kotlinx.android.synthetic.main.signup.view.*
 
-class Signup : Fragment(){
-    private lateinit var viewmodel: GalleryViewModel
+class SignupFragment : Fragment(){
+    private lateinit var viewmodel: UserViewModel
     private lateinit var sName:String
     private lateinit var sEmail:String
     private lateinit var sPass:String
@@ -30,14 +31,15 @@ class Signup : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.signup,container,false)
-        viewmodel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+        viewmodel = ViewModelProvider(this).get(UserViewModel::class.java)
         auth = FirebaseAuth.getInstance()
         view.signup_button.setOnClickListener {
             if (!sValidate()){
                sValidate()
             }
             else {
-                if (viewmodel.signup(sName,sEmail,sPass,uri)) {
+                if (viewmodel.signup(sName!!,sEmail!!,sPass!!,uri)) {
+                    Log.i("Signup In Fragment ","Executed ")
                     val intent = Intent(context,
                         MainActivity::class.java)
                     startActivity(intent)
@@ -87,7 +89,7 @@ class Signup : Fragment(){
             signup_password.error = "Required Field"
             v = false
         }
-        if (!sEmail.contains("@") || !sEmail.contains(".com")){
+        if (!sEmail.contains("@") && !sEmail.contains(".com")){
             signup_email.error = "Enter a valid email address"
             v = false
         }

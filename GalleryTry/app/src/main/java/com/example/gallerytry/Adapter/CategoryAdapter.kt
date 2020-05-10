@@ -9,17 +9,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gallerytry.View.ImageFullScreen
-import com.example.gallerytry.Model.addCategoryModel
+import com.example.gallerytry.View.Category.ImageFullScreenFragment
+import com.example.gallerytry.Model.AddCategoryModel
 import com.example.gallerytry.R
-import com.example.gallerytry.View.addImageToCategory
+import com.example.gallerytry.View.Category.AddImageToCategoryFragment
 import com.squareup.picasso.Picasso
 
-class CategoryAdapter(val categoryList: List<addCategoryModel>, val mContext: Context?) : RecyclerView.Adapter<CategoryAdapter.MyHolder>() {
+class CategoryAdapter(val categoryList: List<AddCategoryModel>, val mContext: Context?,val listener: CategoryCallBackListener) : RecyclerView.Adapter<CategoryAdapter.MyHolder>() {
 
     class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var categoryImage: ImageView = itemView.findViewById(R.id.categoryImage)
+        var categoryImage: ImageView = itemView.findViewById(R.id.categoryItemImage)
         var categoryName: TextView = itemView.findViewById(R.id.category_name)
     }
 
@@ -43,19 +43,8 @@ class CategoryAdapter(val categoryList: List<addCategoryModel>, val mContext: Co
         holder.categoryName.setText(categoryList.get(position).categoryName)
         Picasso.get().load(categoryList.get(position).categoryImage).into(holder.categoryImage)
         holder.itemView.setOnClickListener{
-            val imagesFragment = addImageToCategory()
-            val expandedImage = ImageFullScreen()
-            val bundle1 = Bundle()
-            val bundle = Bundle()
-            bundle.putString("catName", categoryList[position].categoryName)
-            bundle1.putString("catName", categoryList[position].categoryName)
-            val activity: AppCompatActivity = it.context as AppCompatActivity
-            expandedImage.arguments = bundle1
-            val transaction = activity.supportFragmentManager.beginTransaction()
-            imagesFragment.arguments = bundle
-            transaction.addToBackStack("open category")
-            transaction.replace(R.id.container,imagesFragment)
-            transaction.commit()
+            listener.onClickCategory(categoryList[position].categoryName)
+
 
         }
     }

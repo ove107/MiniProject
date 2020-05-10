@@ -1,4 +1,4 @@
-package com.example.gallerytry.View
+package com.example.gallerytry.View.Category
 
 import android.content.Context
 import android.content.Intent
@@ -12,17 +12,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gallerytry.Adapter.AdapterImage
+import com.example.gallerytry.Adapter.ImageCallBackListener
 import com.example.gallerytry.Model.ImageModel
 import com.example.gallerytry.R
+import com.example.gallerytry.View.User.ProgressDisplay
+import com.example.gallerytry.ViewModel.CategoryViewModel
 
-import com.example.gallerytry.ViewModel.GalleryViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.StorageReference
@@ -30,8 +31,8 @@ import kotlinx.android.synthetic.main.category_image.view.*
 import java.io.ByteArrayOutputStream
 import kotlin.collections.ArrayList
 
-class addImageToCategory  : Fragment() {
-    private lateinit var viewmodel: GalleryViewModel
+class AddImageToCategoryFragment  : Fragment(),ImageCallBackListener {
+    private lateinit var viewmodel: CategoryViewModel
     private lateinit var uri:Uri
     private lateinit var storageReference: StorageReference
     private lateinit var auth: FirebaseAuth
@@ -41,6 +42,7 @@ class addImageToCategory  : Fragment() {
     private lateinit var imageList:ArrayList<String>
     private lateinit var iList : ArrayList<ImageModel>
     private lateinit var recycler : RecyclerView
+    private lateinit var loadingDialog:ProgressDisplay
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,7 +53,7 @@ class addImageToCategory  : Fragment() {
         val bundle = this.arguments
         categoryName = bundle?.getString("catName").toString()
         view.textView.text = categoryName
-
+        loadingDialog = ProgressDisplay(activity!!)
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
         recycler = view.findViewById(R.id.recyclerImages) as RecyclerView
@@ -89,28 +91,30 @@ class addImageToCategory  : Fragment() {
 
     private fun loadImages() {
 
-        viewmodel = ViewModelProvider(this).get(GalleryViewModel::class.java)
+        loadingDialog.startLoadingDialog("Loading Images")
+        viewmodel = ViewModelProvider(this).get(CategoryViewModel::class.java)
         viewmodel.loadImages(categoryName).observe(viewLifecycleOwner, androidx.lifecycle.Observer {
             imagesAdapter =
-                AdapterImage(context)
+                AdapterImage(context,this)
             imagesAdapter.listChange(it)
             imagesAdapter.notifyDataSetChanged()
             recycler.adapter = imagesAdapter
+            loadingDialog.dismissDialog()
         })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        loadingDialog.startLoadingDialog("Loading Images")
         if (data!=null && requestCode == 3){
             uri = data.data!!
             Log.e("URI GALLERY: ","$uri")
-            //Toast.makeText(context,"Gallery",Toast.LENGTH_SHORT).show()
             storeImage()
         }
         if (data!= null && requestCode == 4 ){
             val photo: Bitmap = data.extras?.get("data") as Bitmap
             uri = getImageUri(context,photo)
             Log.e("URI CAMERA: ","$uri")
-            //Toast.makeText(context,"camera",Toast.LENGTH_SHORT).show()
             storeImage()
         }
     }
@@ -132,6 +136,20 @@ class addImageToCategory  : Fragment() {
 
     private fun storeImage() {
         viewmodel.storeImages(categoryName,uri)
-      //  Toast.makeText(context,"Successfully uploaded.",Toast.LENGTH_SHORT).show()
+        loadingDialog.dismissDialog()
+    }
+
+    override fun onClickImage(image: ImageModel) {
+        val fragment =
+            ImageFullScreenFragment()
+        val bundle = Bundle()
+        bundle.putString("ImageURL",image.downloadURL)
+        bundle.putString("CategoryName",image.CategoryName)
+        bundle.putString("TimeStamp",image.Timestamp)
+        fragment.arguments = bundle
+        val transaction = activity!!.supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container,fragment)
+                    .addToBackStack(null)
+                    .commit()
     }
 }

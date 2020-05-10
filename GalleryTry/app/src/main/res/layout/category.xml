@@ -17,7 +17,6 @@
         android:text="CATEGORY"
         android:textColor="#0C0C0C"
         />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"

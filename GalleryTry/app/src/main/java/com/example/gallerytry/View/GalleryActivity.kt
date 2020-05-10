@@ -1,22 +1,26 @@
 package com.example.gallerytry.View
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import com.example.gallerytry.R
-import com.google.firebase.auth.FirebaseAuth
+import com.example.gallerytry.View.Category.AddCategoryFragmnet
+import com.example.gallerytry.View.Category.CategoryFragment
+import com.example.gallerytry.View.Timeline.TimelineFragment
+import com.example.gallerytry.View.User.UserProfileFragment
 import kotlinx.android.synthetic.main.activity_gallery.*
 
 
-class GalleryActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+class GalleryActivity : AppCompatActivity(){
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
-
-
-        val categoryFragment = Category()
+        //val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
+        //val toolbar:Toolbar = (Toolbar)findViewById(R.id.my_toolbar)
+        setSupportActionBar(findViewById(R.id.my_toolbar))
+        val categoryFragment =
+            CategoryFragment()
         supportFragmentManager.
         beginTransaction().
         replace(R.id.container,categoryFragment)
@@ -27,8 +31,9 @@ class GalleryActivity : AppCompatActivity() {
             when(item.itemId){
 
                 R.id.profile_item -> {
+                    actionBar?.title="Profile"
                     val profileFragment =
-                        userProfile()
+                        UserProfileFragment()
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,profileFragment)
@@ -36,17 +41,19 @@ class GalleryActivity : AppCompatActivity() {
                         .commit()
                 }
                 R.id.gallery_item -> {
-                  val categoryFragment =
-                      Category()
+                    actionBar?.title="Category"
+                    val categoryFragment =
+                        CategoryFragment()
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,categoryFragment)
                         .addToBackStack(null)
                         .commit()
-               }
+                }
                 R.id.add_item -> {
+                    actionBar?.title="Add Category"
                     val addFragment =
-                        addCategory()
+                        AddCategoryFragmnet()
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,addFragment)
@@ -54,44 +61,22 @@ class GalleryActivity : AppCompatActivity() {
                         .commit()
                 }
                 R.id.timeline_item -> {
+                    actionBar?.title="Timeline"
                     val timelineFragment =
-                        Timeline()
+                        TimelineFragment()
                     supportFragmentManager.
                     beginTransaction().
                     replace(R.id.container,timelineFragment)
                         .addToBackStack(null)
                         .commit()
                 }
-           }
+            }
             true
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-        if (currentUser == null){
-           logout()
-        }
-    }
-    override fun onBackPressed() {
-        if(supportFragmentManager.backStackEntryCount>0)
-        {
-            for(i in 1..supportFragmentManager.backStackEntryCount)
-            supportFragmentManager.popBackStackImmediate()
-        }
-        else {
-            val dialog = DialogLogout()
-            supportFragmentManager.beginTransaction().add(dialog, "dialog fragment").commit()
-        }
-    }
 
-    fun logout() {
-        auth = FirebaseAuth.getInstance()
-        auth.signOut()
-        startActivity(Intent(this, MainActivity::class.java))
-    }
+
 
 
 }

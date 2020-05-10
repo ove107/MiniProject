@@ -1,6 +1,6 @@
 package com.example.gallerytry.Model
 
-class addCategoryModel {
+class AddCategoryModel {
     val categoryName: String
     val categoryImage: String
 

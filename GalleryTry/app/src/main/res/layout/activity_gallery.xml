@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".View.GalleryActivity"
     android:background="@color/tangyOrange">
-<androidx.appcompat.widget.Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/toolbar"
-    android:layout_alignParentTop="true"
-    android:background="@color/blue"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/my_toolbar"
         android:layout_above="@id/navigationView"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
