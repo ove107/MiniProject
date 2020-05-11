@@ -1,6 +1,7 @@
 package com.example.gallerytry.View
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gallerytry.R
@@ -16,9 +17,8 @@ class GalleryActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
-        //val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
-        //val toolbar:Toolbar = (Toolbar)findViewById(R.id.my_toolbar)
-        setSupportActionBar(findViewById(R.id.my_toolbar))
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
         val categoryFragment =
             CategoryFragment()
         supportFragmentManager.

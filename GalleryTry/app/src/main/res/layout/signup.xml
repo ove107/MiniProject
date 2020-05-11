@@ -2,15 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
-    <ImageView
-        android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#06A7EF">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/sign_up_image"
         android:src="@drawable/signup"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
+        android:backgroundTint="#ECF323"
+        app:civ_circle_background_color="@color/white"
         />
     <TextView
         android:layout_width="200dp"
@@ -20,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/black"
         android:id="@+id/signup_text"
         android:gravity="center"/>
 
@@ -34,6 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:hint="Enter Name"
+        android:textColorHint="@color/black"
         android:gravity="center"
         android:inputType="text"
         android:maxLines="1"
@@ -51,6 +55,7 @@
         android:gravity="center"
         android:inputType="textEmailAddress"
         android:maxLines="1"
+        android:textColorHint="@color/black"
         />
 
     <EditText
@@ -66,11 +71,12 @@
         android:hint="Enter Password"
         android:gravity="center"
         android:maxLines="1"
+        android:textColorHint="@color/black"
         />
 
     <Button
-        android:backgroundTint="#3893C0"
-        android:textColor="#F2F4F4"
+        android:backgroundTint="@color/white"
+
         android:padding="10dp"
         android:textSize="18sp"
         android:id="@+id/signup_button"

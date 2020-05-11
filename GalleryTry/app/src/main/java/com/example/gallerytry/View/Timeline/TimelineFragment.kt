@@ -16,7 +16,8 @@ import com.example.gallerytry.ViewModel.TimelineViewModel
 
 
 class TimelineFragment: Fragment() {
-    private lateinit var viewmodel: TimelineViewModel
+    private var viewModel = TimelineViewModel()
+    private var loadingDialog:ProgressDisplay ?= null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,18 +25,36 @@ class TimelineFragment: Fragment() {
     ): View? {
         val view =  inflater.inflate(R.layout.timeline,container,false)
         val recyclerView = view.findViewById(R.id.timeline_recycler) as RecyclerView
-        recyclerView.layoutManager = GridLayoutManager(context,3)
-        val loadingDialog = ProgressDisplay(activity!!)
-        loadingDialog.startLoadingDialog("Loading Images")
-
-        viewmodel = ViewModelProvider(this).get(TimelineViewModel::class.java)
-        viewmodel.getTimeline().observe(viewLifecycleOwner, Observer {
+        viewModel = ViewModelProvider(this).get(TimelineViewModel::class.java)
+        setObservers()
+        loadingDialog = ProgressDisplay(activity!!)
+        recyclerView.layoutManager = GridLayoutManager(context,3,GridLayoutManager.VERTICAL,false)
+        viewModel.getTimeline().observe(viewLifecycleOwner, Observer {
             val tAdapter =
-                AdapterTimeline(it, context)
+                AdapterTimeline(
+                    it,
+                    context
+                )
             recyclerView.adapter = tAdapter
-            loadingDialog.dismissDialog()
         })
 
         return view
+    }
+
+    private fun setObservers() {
+        viewModel.getTimelineStatus().observe(viewLifecycleOwner, Observer {
+            when(it){
+                TimelineViewModel.TimelineProgress.SHOW_PROGRESS -> showProgress()
+                TimelineViewModel.TimelineProgress.HIDE_PROGRESS -> hideProgress()
+            }
+        })
+    }
+
+    private fun showProgress() {
+        loadingDialog!!.startLoadingDialog("Loading your timeline")
+    }
+
+    private fun hideProgress() {
+        loadingDialog!!.dismissDialog()
     }
 }

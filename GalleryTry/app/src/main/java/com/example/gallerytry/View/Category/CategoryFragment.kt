@@ -21,8 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class CategoryFragment: Fragment(),CategoryCallBackListener {
     private lateinit var viewmodel: CategoryViewModel
-    private lateinit var auth: FirebaseAuth
-    private lateinit var firestoreRef: FirebaseFirestore
     private lateinit var cAdapter: CategoryAdapter
     private lateinit var categoryList: ArrayList<AddCategoryModel>
     private lateinit var recyclerView: RecyclerView
@@ -35,8 +33,6 @@ class CategoryFragment: Fragment(),CategoryCallBackListener {
         val view = inflater.inflate(R.layout.category, container, false)
         recyclerView = view.findViewById(R.id.recycler) as RecyclerView
         recyclerView.layoutManager = GridLayoutManager(context,3)
-        auth = FirebaseAuth.getInstance()
-        firestoreRef = FirebaseFirestore.getInstance()
         categoryList = arrayListOf()
         val loadingDialog = ProgressDisplay(activity!!)
         loadingDialog.startLoadingDialog("Loading Images")

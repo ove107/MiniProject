@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_activity_container"
-    android:background="@color/white"
-    tools:context=".View.MainActivity">
+    tools:context=".View.MainActivity"
+    android:background="#06A7EF">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="match_parent"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/login"
             android:layout_centerHorizontal="true"
@@ -20,7 +20,7 @@
             android:id="@+id/login_image"/>
         <EditText
             android:padding="10dp"
-
+            android:textColorHint="@color/black"
             android:background = "@drawable/borders"
             android:id="@+id/login_email"
             android:layout_below="@id/login_image"
@@ -30,7 +30,7 @@
             android:layout_marginTop="50dp"
             android:hint="Enter Email"
             android:gravity="center"
-            />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:padding="10dp"
@@ -44,11 +44,12 @@
             android:layout_marginTop="10dp"
             android:hint="Enter Password"
             android:gravity="center"
+            android:textColorHint="@color/black"
             />
 
         <Button
-            android:backgroundTint="#3893C0"
-            android:textColor="#F2F4F4"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:padding="10dp"
             android:textSize="18sp"
             android:onClick="login"
@@ -59,6 +60,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:text="Login"
+
             />
         <TextView
             android:layout_width="wrap_content"
@@ -66,7 +68,7 @@
             android:layout_below="@id/login_button"
             android:textSize="20sp"
             android:text="click here to signup"
-            android:textColor="@color/blue"
+            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:onClick="signup"
